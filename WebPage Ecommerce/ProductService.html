@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Page2.css">
+    <link rel="stylesheet" href="NavBar.css">
+    <script src="OrderSummary.js" defer></script>
+    <title>E-Commerce Website</title>
+</head>
+<body>
+    <!-- Navigation bar-->
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a class="active" href="ProductService.html">Product/Service</a></li>
+        <li><a href="Page3.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+
+    <!-- The form -->
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <table border="1" id="order-summary-table">
+                <thead>
+                    <tr>
+                        <th colspan="3">Order Summary</th>
+                    </tr>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody id="order-summary">
+                    <!-- Order summary details will be added here dynamically -->
+                </tbody>
+            </table>
+            <center>
+                <button type="button" onclick="openModal()">Submit</button>
+                <button type="button" onclick="clearCart()">Clear</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </center>
+        </form>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Additional Information</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="address">Address:</label><br>
+                    <input type="text" id="address" name="address" required><br>
+                    <label for="contact">Contact:</label><br>
+                    <input type="text" id="contact" name="contact" required><br><br>
+                    <button type="submit" id="display" onclick="validateForm()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <main>
+        <section id="products">
+            <center><h2>Shoes</h2></center>
+            <div class="container">
+                <div class="product">
+                    <img src="D:\New folder\WebPage Ecommerce\Page2Image\shopping.jpg" alt="Dresslily Basketball Shoes for Men Original Plus Size">
+                    <p>Dresslily Basketball Shoes for Men Original Plus Size </p>
+                    <p id="price1"> 507.99 </p>
+                    <label for="quantity1">Quantity</label>
+                    <input type="number" id="quantity1" name="quantity1" min="0" value="0">
+                    <button onclick="addToCart('Dresslily Basketball Shoes for Men Original Plus Size', 'price1', 'quantity1')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="shopping(1).jpg" alt="Business Office Casual formal shoes Brown">
+                    <p>Business Office Casual formal shoes Brown </p>
+                    <p id="price2"> 499.99 </p>
+                    <label for="quantity2">Quantity</label>
+                    <input type="number" id="quantity2" name="quantity2" min="0" value="0">
+                    <button onclick="addToCart('Luxury Business Oxford Leather Shoes Men', 'price2', 'quantity2')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="shopping(2).jpg" alt="Top Men Formal Business Office School shoes">
+                    <p>Top Men Formal Business Office School shoes</p>
+                    <p id="price3"> 1998.00 </p>
+                    <label for="quantity3">Quantity</label>
+                    <input type="number" id="quantity3" name="quantity3" min="0" value="0">
+                    <button onclick="addToCart('Top Men Formal Business Office School shoes', 'price3', 'quantity3')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="shopping(3).jpg" alt="BMD Men's Formal Business Genuine Leather">
+                    <p>BMD Men's Formal Business Genuine Leather</p>
+                    <p id="price4"> 1307.99 </p>
+                    <label for="quantity4">Quantity</label>
+                    <input type="number" id="quantity4" name="quantity4" min="0" value="0">
+                    <button onclick="addToCart('BMD Men's Formal Business Genuine Leather', 'price4', 'quantity4')">Add to Cart</button>
+                </div>
+				</div>
+            <div class="container">
+                <div class="product">
+                    <img src="shopping(4).jpg" alt="Luxury Business Oxford Leather Shoes Men">
+                    <p>Luxury Business Oxford Leather Shoes Men</p>
+                    <p id="price5">1050.92</p>
+                    <label for="quantity5">Quantity</label>
+                    <input type="number" id="quantity5" name="quantity5" min="0" value="0">
+                    <button onclick="addToCart('Luxury Business Oxford Leather Shoes Men', 'price5', 'quantity5')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="shopping(5).jpg" alt="ASIFN Men's Leather Driving Loafers">
+                    <p>ASIFN Men's Leather Driving Loafers</p>
+                    <p id="price6">3425.91</p>
+                    <label for="quantity6">Quantity</label>
+                    <input type="number" id="quantity6" name="quantity6" min="0" value="0">
+                    <button onclick="addToCart('ASIFN Men's Leather Driving Loafers', 'price6', 'quantity6')">Add to Cart</button>
+                </div>
+            </div>
+            <center><h2>Suits</h2></center>
+            <div class="container">
+                <div class="product">
+                    <img src="Suit(1).jpg" alt="Stretch Men's Suit Two-piece Suit Set">
+                    <p>Stretch Men's Suit Two-piece Suit Set</p>
+                    <p id="price7"> 898.00 </p>
+                    <label for="quantity7">Quantity</label>
+                    <input type="number" id="quantity7" name="quantity7" min="0" value="0">
+                    <button onclick="addToCart('Stretch Men's Suit Two-piece Suit Set', 'price7', 'quantity7')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Suit(2).jpg" alt="MOGU Mens 3 Piece Slim Fit Plaid Suit">
+                    <p>MOGU Mens 3 Piece Slim Fit Plaid Suit</p>
+                    <p id="price8"> 5761.00</p>
+                    <label for="quantity8">Quantity</label>
+                    <input type="number" id="quantity8" name="quantity8" min="0" value="0">
+                    <button onclick="addToCart('MOGU Mens 3 Piece Slim Fit Plaid Suit', 'price8', 'quantity8')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Suit(3).jpg" alt="Slim Fit Suit New Striped Three piece">
+                    <p>Slim Fit Suit New Striped Three piece</p>
+                    <p id="price9"> 4506.00 </p>
+                    <label for="quantity9">Quantity</label>
+                    <input type="number" id="quantity9" name="quantity9" min="0" value="0">
+                    <button onclick="addToCart('Slim Fit Suit New Striped Three piece', 'price9', 'quantity9')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Suit(4).jpg" alt="UNINUKOO Men Suits Slim Fit 3 Piece 1 Button">
+                    <p>UNINUKOO Men Suits Slim Fit 3 Piece 1 Button</p>
+                    <p id="price10"> 4954.40 </p>
+                    <label for="quantity10">Quantity</label>
+                    <input type="number" id="quantity10" name="quantity10" min="0" value="0">
+                    <button onclick="addToCart('UNINUKOO Men Suits Slim Fit 3 Piece 1 Button', 'price10', 'quantity10')">Add to Cart</button>
+                </div>
+                </div>
+            <div class="container"> 
+                <div class="product">
+                    <img src="Suit(5).jpg" alt="High-End Suits Men's Classic">
+                    <p>High-End Suits Men's Classic</p>
+                    <p id="price11">4532</p>
+                    <label for="quantity11">Quantity</label>
+                    <input type="number" id="quantity11" name="quantity11" min="0" value="0">
+                    <button onclick="addToCart('High-End Suits Men's Classic', 'price11', 'quantity11')">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Suit(6).jpg" alt="KUDORO Mens Suits 3 Piece Slim Fit Suit Double Breasted Pinstripe Suit">
+                    <p>KUDORO Mens Suits 3 Piece Slim Fit Suit Double Breasted Pinstripe Suit</p>
+                    <p id="price12">3425.91</p>
+                    <label for="quantity12">Quantity</label>
+                    <input type="number" id="quantity12" name="quantity12" min="0" value="0">
+                    <button onclick="addToCart('KUDORO Mens Suits 3 Piece Slim Fit Suit Double Breasted Pinstripe Suit', 'price12', 'quantity12')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- A button to open the popup form -->
+    <button class="open-button" onclick="openForm()">Open Form</button>
+    
+
+</body>
+</html>
